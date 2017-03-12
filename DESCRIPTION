@@ -1,9 +1,11 @@
 Package: Bioinformatics
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A collection of functions for Bioinformatics
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Authors@R: c(person("Frosina Stojanovska", "Developer", role = c("aut", "cre"),
+                     email = "stojanovska.frose@gmail.com"))
+Author: Frosina Stojanovska [aut, cre]
+Maintainer: Frosina Stojanovska <stojanovska.frose@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
