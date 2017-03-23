@@ -1,15 +1,19 @@
-#' Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM50 as score matrix.
+#' Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM as score matrix.
 #'
 #' @param sequence1 First vector with characters indicating some protein sequence.
 #' @param sequence2 Second vector with characters indicating some protein sequence.
 #' @param gapPenalty A number indicating the gap penalty value.
+#' @param blosumName Name of the BLOSUM matrix.
 #' @return List containing the score and the resulting aligned sequences.
 #' @examples
-#' localAligmentProteinSequence(c("P","A","W","H","E","A","E"), c("H","E","A","G","A","W","G","H","E","E"), 8)
+#' localAligmentProteinSequence(c("P","A","W","H","E","A","E"), c("H","E","A","G","A","W","G","H","E","E"), 8, "BLOSUM50")
 
 
-localAligmentProteinSequence <- function(sequence1, sequence2, gapPenalty){
-  load("./data/BLOSUM50.Rda")
+localAligmentProteinSequence <- function(sequence1, sequence2, gapPenalty, blosumName){
+  fileName <- paste("./data/", blosumName, ".rda", sep="")
+  if(file.exists(fileName) == FALSE)
+    return("BLOSUM matrix with that name isn't available")
+  BLOSUM <- get(load(fileName))
 
   if(gapPenalty > 0)
     d = gapPenalty * -1
@@ -40,7 +44,7 @@ localAligmentProteinSequence <- function(sequence1, sequence2, gapPenalty){
     for(j in 2:ncol(matrix)){
       rowname <- rownames(matrix)[i]
       colname <- colnames(matrix)[j]
-      match <- matrix[i-1, j-1] + BLOSUM50[rowname, colname]
+      match <- matrix[i-1, j-1] + BLOSUM[rowname, colname]
       delete <- matrix[i-1,j] + d
       insert <- matrix[i,j-1] + d
       matrix[i,j] <- max(0, match, insert, delete)
