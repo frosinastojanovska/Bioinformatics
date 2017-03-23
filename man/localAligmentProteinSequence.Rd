@@ -2,9 +2,9 @@
 % Please edit documentation in R/localAligmentProteinSequence.R
 \name{localAligmentProteinSequence}
 \alias{localAligmentProteinSequence}
-\title{Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM50 as score matrix.}
+\title{Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM as score matrix.}
 \usage{
-localAligmentProteinSequence(sequence1, sequence2, gapPenalty)
+localAligmentProteinSequence(sequence1, sequence2, gapPenalty, blosumName)
 }
 \arguments{
 \item{sequence1}{First vector with characters indicating some protein sequence.}
@@ -12,13 +12,15 @@ localAligmentProteinSequence(sequence1, sequence2, gapPenalty)
 \item{sequence2}{Second vector with characters indicating some protein sequence.}
 
 \item{gapPenalty}{A number indicating the gap penalty value.}
+
+\item{blosumName}{Name of the BLOSUM matrix.}
 }
 \value{
 List containing the score and the resulting aligned sequences.
 }
 \description{
-Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM50 as score matrix.
+Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM as score matrix.
 }
 \examples{
-localAligmentProteinSequence(c("P","A","W","H","E","A","E"), c("H","E","A","G","A","W","G","H","E","E"), 8)
+localAligmentProteinSequence(c("P","A","W","H","E","A","E"), c("H","E","A","G","A","W","G","H","E","E"), 8, "BLOSUM50")
 }

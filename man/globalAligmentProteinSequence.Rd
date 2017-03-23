@@ -4,7 +4,7 @@
 \alias{globalAligmentProteinSequence}
 \title{Finds the optimal global nucleotide sequence aligment with Needleman-Wunsch algorithm with BLOSUM50 as score matrix.}
 \usage{
-globalAligmentProteinSequence(sequence1, sequence2, gapPenalty)
+globalAligmentProteinSequence(sequence1, sequence2, gapPenalty, blosumName)
 }
 \arguments{
 \item{sequence1}{First vector with characters indicating some protein sequence.}
@@ -12,6 +12,8 @@ globalAligmentProteinSequence(sequence1, sequence2, gapPenalty)
 \item{sequence2}{Second vector with characters indicating some protein sequence.}
 
 \item{gapPenalty}{A number indicating the gap penalty value.}
+
+\item{blosumName}{Name of the BLOSUM matrix.}
 }
 \value{
 List containing the score and the resulting aligned sequences.
@@ -20,5 +22,5 @@ List containing the score and the resulting aligned sequences.
 Finds the optimal global nucleotide sequence aligment with Needleman-Wunsch algorithm with BLOSUM50 as score matrix.
 }
 \examples{
-globalAligmentProteinSequence(c("P","A","W","H","E","A","E"), c("H","E","A","G","A","W","G","H","E","E"), 8)
+globalAligmentProteinSequence(c("P","A","W","H","E","A","E"), c("H","E","A","G","A","W","G","H","E","E"), 8, "BLOSUM50")
 }
