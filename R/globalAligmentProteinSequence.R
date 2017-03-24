@@ -4,7 +4,7 @@
 #' @param sequence2 Second vector with characters indicating some protein sequence.
 #' @param gapPenalty A number indicating the gap penalty value.
 #' @param blosumName Name of the BLOSUM matrix.
-#' @return List containing the score and the resulting aligned sequences.
+#' @return List containing the score, the resulting aligned sequences and the matrix of aligment.
 #' @examples
 #' globalAligmentProteinSequence(c("P","A","W","H","E","A","E"), c("H","E","A","G","A","W","G","H","E","E"), 8, "BLOSUM50")
 
@@ -96,6 +96,6 @@ globalAligmentProteinSequence <- function(sequence1, sequence2, gapPenalty, blos
     j <- j - 1
   }
 
-  solution = list(score = finalScore, sequence1 = newSequence1, sequence2 = newSequence2)
+  solution = list(score = finalScore, sequence1 = newSequence1, sequence2 = newSequence2, matrix = matrix)
   return(solution)
 }

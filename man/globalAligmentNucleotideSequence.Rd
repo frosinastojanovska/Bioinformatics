@@ -19,7 +19,7 @@ globalAligmentNucleotideSequence(sequence1, sequence2, gapPenalty,
 \item{unmatchingScore}{A number indicating the value for unmatching nucleotides.}
 }
 \value{
-List containing the score and the resulting aligned sequences.
+List containing the score, the resulting aligned sequences and the matrix of aligment.
 }
 \description{
 Finds the optimal global nucleotide sequence aligment with Needleman-Wunsch algorithm with BLOSUM50 as score matrix.

@@ -5,7 +5,7 @@
 #' @param gapPenalty A number indicating the gap penalty value.
 #' @param matchingScore A number indicating the value for matching nucleotides.
 #' @param unmatchingScore A number indicating the value for unmatching nucleotides.
-#' @return List containing the score and the resulting aligned sequences.
+#' @return List containing the score, the resulting aligned sequences and the matrix of aligment.
 #' @examples
 #' localAligmentNucleotideSequence(c("A","C","A","C","A","C","T","A"), c("A","G","C","A","C","A","C","A"), 1, 2, -1)
 
@@ -94,6 +94,6 @@ localAligmentNucleotideSequence <- function(sequence1, sequence2, gapPenalty, ma
     }
   }
 
-  solution = list(score = finalScore, sequence1 = newSequence1, sequence2 = newSequence2)
+  solution = list(score = finalScore, sequence1 = newSequence1, sequence2 = newSequence2, matrix = matrix)
   return(solution)
 }

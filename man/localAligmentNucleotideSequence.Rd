@@ -19,7 +19,7 @@ localAligmentNucleotideSequence(sequence1, sequence2, gapPenalty, matchingScore,
 \item{unmatchingScore}{A number indicating the value for unmatching nucleotides.}
 }
 \value{
-List containing the score and the resulting aligned sequences.
+List containing the score, the resulting aligned sequences and the matrix of aligment.
 }
 \description{
 Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM50 as score matrix.

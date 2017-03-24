@@ -16,7 +16,7 @@ localAligmentProteinSequence(sequence1, sequence2, gapPenalty, blosumName)
 \item{blosumName}{Name of the BLOSUM matrix.}
 }
 \value{
-List containing the score and the resulting aligned sequences.
+List containing the score, the resulting aligned sequences and the matrix of aligment.
 }
 \description{
 Finds the optimal local nucleotide sequence aligment with Smith-Waterman algorithm and BLOSUM as score matrix.
