@@ -12,7 +12,7 @@
 globalAligmentProteinSequence <- function(sequence1, sequence2, gapPenalty, blosumName){
   if(exists(blosumName) == FALSE)
     return("BLOSUM matrix with that name isn't available")
-  BLOSUM <- get(data(blosumName))
+  BLOSUM <- get(blosumName)
 
   if(gapPenalty > 0)
     d = gapPenalty * -1
