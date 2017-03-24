@@ -1,4 +1,4 @@
-#' Finds score and consensus along with aligment and profile matrices for given DNA sequences and start positions.
+#' Finds start positions for given DNA sequences and consensus.
 #'
 #' @param DNA A matrix with DNA sequences in each row.
 #' @param consensus A vector with start position for every DNA sequence.
