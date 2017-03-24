@@ -19,7 +19,7 @@ translation <- function(sequence){
   numSequence <- 0
   startCodon <- "AUG"
   for(i in 1:(length(rna)-2)){
-    codon <- paste(rna[i:(i+2)], collapse = "", sep="")
+    codon <- toupper(paste(rna[i:(i+2)], collapse = "", sep=""))
     if(codon == startCodon){
       numSequence <- numSequence + 1
       protein <- c(RNAGeneticCoding(startCodon))
@@ -28,7 +28,7 @@ translation <- function(sequence){
       for(j in seq(position,length(rna),3)){
         if(j + 2 > length(rna))
           break;
-        codon <- paste(rna[j:(j+2)], collapse = "", sep="")
+        codon <- toupper(paste(rna[j:(j+2)], collapse = "", sep=""))
         aminoAcid <- RNAGeneticCoding(codon)
         if(aminoAcid == "*")
           break;
