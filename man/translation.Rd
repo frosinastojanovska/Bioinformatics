@@ -2,7 +2,10 @@
 % Please edit documentation in R/translation.R
 \name{translation}
 \alias{translation}
-\title{Finds all protein sequences for the given DNA sequence}
+\title{Finds all protein sequences for the given DNA sequence. First the algorithm finds the RNA for the given
+DNA sequence. Then it starts from the begining searching for a start codon, and stops when finds stop
+codon of end of sequence.When one sequence is found, the algorithm searches for new start codon in the
+sequence, after the previous start codon.}
 \usage{
 translation(sequence)
 }
@@ -13,7 +16,10 @@ translation(sequence)
 A list with vectors indicating all possible protein sequences for given DNA.
 }
 \description{
-Finds all protein sequences for the given DNA sequence
+Finds all protein sequences for the given DNA sequence. First the algorithm finds the RNA for the given
+DNA sequence. Then it starts from the begining searching for a start codon, and stops when finds stop
+codon of end of sequence.When one sequence is found, the algorithm searches for new start codon in the
+sequence, after the previous start codon.
 }
 \examples{
 translation(c("A","T","G","C","A","C","A","T","G","T","A","C","T","G","A","T","A","C"))
