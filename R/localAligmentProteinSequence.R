@@ -10,10 +10,9 @@
 
 
 localAligmentProteinSequence <- function(sequence1, sequence2, gapPenalty, blosumName){
-  fileName <- paste("./data/", blosumName, ".rda", sep="")
-  if(file.exists(fileName) == FALSE)
+  if(exists(blosumName) == FALSE)
     return("BLOSUM matrix with that name isn't available")
-  BLOSUM <- get(load(fileName))
+  BLOSUM <- get(data(blosumName))
 
   if(gapPenalty > 0)
     d = gapPenalty * -1
