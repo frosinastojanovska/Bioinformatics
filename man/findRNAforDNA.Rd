@@ -4,10 +4,12 @@
 \alias{findRNAforDNA}
 \title{Finds the mRNA sequence for given DNA sequence}
 \usage{
-findRNAforDNA(dna)
+findRNAforDNA(dna, strandDirection = c("5'->3'", "3'->5'"))
 }
 \arguments{
 \item{dna}{A vector of characters in lower or upper case indicating some DNA sequence.}
+
+\item{strandDirection}{A string indicating the DNA strand direction. It could be "5'->3'", or "3'->5'".}
 }
 \value{
 Vector of characters reperesenting mRNA sequence for given DNA.
@@ -16,6 +18,6 @@ Vector of characters reperesenting mRNA sequence for given DNA.
 Finds the mRNA sequence for given DNA sequence
 }
 \examples{
-findRNAforDNA(c("A","C","A","C","A","C","T","A"))
-findRNAforDNA(c("a","g","c","a","c","a","c","a"))
+findRNAforDNA(c("A","C","A","C","A","C","T","A"), "3'->5'")
+findRNAforDNA(c("a","g","c","a","t","a","c","a"), "5'->3'")
 }
