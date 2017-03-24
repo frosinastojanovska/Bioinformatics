@@ -18,7 +18,7 @@ getStartPositionsWithMedianString <- function(DNA, consensus, motifLen){
     totalDistance <- totalDistance + result$minHD
     startPositions <- append(startPositions, position)
   }
-  return(list(startPositions, totalDistance))
+  return(list(startPositions = startPositions, totalDistance = totalDistance))
 }
 
 getStartPosition <- function(DNAsequence, consensus, motifLen){
@@ -33,5 +33,5 @@ getStartPosition <- function(DNAsequence, consensus, motifLen){
       minSP = i
     }
   }
-  return(list(minSP, minHD))
+  return(list(minSP = minSP, minHD = minHD))
 }
