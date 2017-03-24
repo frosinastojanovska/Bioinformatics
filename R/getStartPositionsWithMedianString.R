@@ -1,9 +1,9 @@
-#' Finds start positions for given DNA sequences and consensus.
+#' Finds total distance and start positions for given DNA sequences and consensus.
 #'
 #' @param DNA A matrix with DNA sequences in each row.
 #' @param consensus A vector with start position for every DNA sequence.
 #' @param motifLen Lenght of the motif.
-#' @return Vector with starting positions of the DNA sequences.
+#' @return List with number for total distance and vector with starting positions of the DNA sequences.
 #' @examples
 #' DNA <- matrix(c("A","C","A","C","A","C","G","A","A","C","U","G","A","C","G","C","A","C","G","G","G","C","U","A"), nrow=4, ncol=6)
 #' consensus <- c("A","C","A","A")
@@ -11,11 +11,14 @@
 
 getStartPositionsWithMedianString <- function(DNA, consensus, motifLen){
   startPositions <- c()
+  totalDistance <- 0
   for(i in 1:nrow(DNA)){
-    position <- getStartPosition(DNA[i,], consensus, motifLen)
+    result <- getStartPosition(DNA[i,], consensus, motifLen)
+    position <- result$minSP
+    totalDistance <- totalDistance + result$minHD
     startPositions <- append(startPositions, position)
   }
-  return(startPositions)
+  return(list(startPositions, totalDistance))
 }
 
 getStartPosition <- function(DNAsequence, consensus, motifLen){
@@ -30,5 +33,5 @@ getStartPosition <- function(DNAsequence, consensus, motifLen){
       minSP = i
     }
   }
-  return(minSP)
+  return(list(minSP, minHD))
 }
